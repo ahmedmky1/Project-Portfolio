@@ -1,0 +1,67 @@
+p1_score = 0 #Player 1's score
+p2_score = 0 #Player 2's score
+round_num = 1 #current round number
+
+#Ensures the continuity of the program as long as the round number is less than 4
+while round_num < 4:
+    print("="*15 + f"Round {round_num}" + "="*15)
+    code = input("Enter a two-digit number :")
+
+    #Code authentication
+    if len(code) != 2:
+        print("Invalid input, you must enter a two-digit number...")
+        continue
+    
+    #The difference in the digit placement (01 or 10)
+    if code[0] in "123" and code[1] in "890":
+        p1_key = code[0]
+        p2_key = code[1]
+    elif code[1] in "123" and code[0] in "890":
+        p1_key = code[1]
+        p2_key = code[2]
+    else:
+        print("Invalid input, player 1 uses 1,2,3 while player 2 uses 8,9,0...")
+        continue
+    
+    #Defines player 1's choice
+    if p1_key == "1":
+        p1_choice = "rock"
+    elif p1_key == "2":
+        p1_choice = "paper"
+    else:
+        p1_choice = "scissors"
+
+    #Defines player 2's choice
+    if p2_key == "8":
+        p2_choice = "rock"
+    elif p2_key == "9":
+        p2_choice ="paper"
+    else:
+        p2_choice = "scissors"
+
+    print(f"\n Player 1 chose {p1_choice}") #Displays player 1's choice
+    print(f"Player 2 chose {p2_choice}") #Dispalys player 2's choice
+
+    #Deciding engine
+    if p1_choice == p2_choice:
+        print(f"\n It's a tie")
+    elif p1_choice == "rock" and p2_choice == "scissors":
+        print(f"\n Player 1 wins")
+        p1_score += 1
+    elif p1_choice == "paper" and p2_choice == "rock":
+        print(f"\n Player 1 wins")
+        p1_score += 1
+    elif p1_choice == "scissors" and p2_choice == "paper":
+        print(f"\n Player 1 wins")
+    else:
+        print(f"\n Player 2 wins")
+        p2_score += 1
+
+    print(f"\n Player 1's score: {p1_score}") #Displays player 1's current score
+    print(f"Player 2's score: {p2_score}") #Displays player 2's current score
+
+    #Advances the round
+    round_num += 1
+
+    print("="*37)
+    input("Press ENTER to continue...") #Waits for the user input if running in CMD
