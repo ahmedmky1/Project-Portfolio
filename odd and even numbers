@@ -1,0 +1,19 @@
+n = 0 
+m = 0
+print("="*22)
+print("Even numbers till 10:")
+while n < 10:
+    n += 1
+    if n % 2 != 0:
+        continue
+    print(n)
+print("="*22)
+
+print(f"\n" + "="*22)
+print("Odd numbers below 10:")
+while m < 10:
+    m += 1
+    if m % 2 == 0:
+        continue
+    print(m)
+print("="*22)
