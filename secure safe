@@ -1,0 +1,40 @@
+import os
+def clear_screen():
+    # Clears the terminal screen based on the Operating System
+    # 'nt' is Windows, 'posix' is Mac/Linux
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+# Fuction that prints 45 equal signs 
+def UI():
+    print("="*45)
+
+try:
+    print("="*20 + "LOGIN" + "="*20)
+    id = int(input("Enter your ID :")) # Changes user input to aa integar
+except ValueError:
+    print("You can enter digits only.") # Dispalys text
+    UI()
+    input("Click 'Enter' to exit the program") # Waits for user input to exit the program 
+
+if type(id) == int: 
+    tries = 1 # Number of login attempts
+
+    while tries < 4: # The code runs if the number of login attempts is below 4
+        
+        pin = "1234" # The safe's password
+        user_pin = input(f"Attempt number: {tries}, Enter the pin :") # Asks the user for the pin
+        tries += 1 # Increases the number of attempts by 1
+    
+        if user_pin == pin: # Checks if the entered pin is the same as the real one
+            print("Access Granted") # Displays text
+            UI()
+            input("Click 'Enter' to exit the program") # Waits for user input to exit the program
+            break # Breaks the loop
+        else:
+            if tries == 4 and user_pin != pin: # Checks if the user entered the pin 3 times
+                print("Account Locked") # Displays text
+                UI()
+                input("Click 'Enter' to exit the program") # Waits for user input to exit the program
+                clear_screen() # Kills the terminal 
+            else:
+                print("Access Denied") # Displays text 
