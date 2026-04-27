@@ -1,0 +1,35 @@
+def UI():
+    print("="*40)
+
+print("="*15 + "CALCULATOR" + "="*15) #app title
+
+try:
+    num1 = float(input("Enter the first number: ")) #declaring a variable for the first number
+    num2 = float(input("Enter the second number: ")) #declaring a variable for the second number
+    operation = input("Choose operation * , / , + or - : ") #the operation that the user chooses
+
+    if operation == "*":
+        print("Solution is : " + str(num1 * num2)) #multiplying the two numbers
+
+    elif operation == "/":
+        if num2 == 0:
+            print("Can't divide by 0") #displays the text: "Can't divide by 0"
+        else:
+            print("Solution is : " + str(num1 / num2)) #divide the first number by the other one
+
+    elif operation =="+":
+        print("Solution is : " + str(num1 + num2)) #adds the two numbers
+
+    elif operation == "-":
+        print("Solution is : " + str(num1 - num2)) #subtracts the second number from the first one
+    
+    else:
+        print("you can only choose * , / , + or -")
+
+    UI()
+    input("Press ENTER to exit the program...") #waits for user input to exit the program if running in cmd
+
+except ValueError:
+   
+    print("Enter digits only and choose an operation") #displays an error message
+    UI()
