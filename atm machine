@@ -1,0 +1,32 @@
+#function for withdrawing
+def withdraw(balance , amount):
+    total = balance - amount
+    return total #available balance
+
+balance = 100 #total balance
+print("="*21 + "WITHDRAW" + "="*21) #displays text
+print(f"Your available balance is: {balance}") #displays total balance
+
+#safety net so user can't enter text
+try:
+    
+    amount = int(input("Enter the amount you want to withdraw :")) #asks the user for input
+    
+    if amount <= balance and amount > 0:
+        rest = withdraw(balance , amount)
+        print(f"you withdrawed {amount}, your availabe balance is : {rest} ")
+        #displays withdrawed amount and available balance
+    
+    elif amount < 0:
+        rest = withdraw(balance , amount)
+        print(f"you deposited {-amount}, your availabe balance is : {rest} ")
+        #displays deposited amount and available balance
+    
+    else:
+        print("Not enough balance") #displays text
+
+except ValueError:
+    print("You can enter digits only.")  #displays a warning for the user
+
+print("="*50)
+input("Press ENTER to exit the program...") #waits for user input to exit the program if running in cmd
