@@ -1,0 +1,35 @@
+students={"ahmed":67} #dictionary holding students' names and ids
+ids=[67] #list holding students' ids
+
+
+#function that compares the student's name and id with the stored ones in the database
+def process(id,student):
+        
+        if student not in students and id not in ids: #checks if the entered name and id is not in the database
+            students[student]=id #adds the student name and id to the dictionary
+            ids.append(id) #adds the student's id to the students' ids' list
+            print("registration successful") #displays text
+            print(f"Hi {student}, your id is {id}") #uses the entered name and id to welcome the user
+        
+        elif id in ids: #if the entered id is already in the database
+            print("Id is already registered") #displays text
+
+        else: #if entered name is in the database
+            print("Name is already registered") #displays text
+
+
+print("="*20+"REGISTER AN ACCOUNT"+"="*20) #display text for user interface (UI)
+try: #safety net if the user enters wrong formatted data
+    
+    id = int(input("Enter your id: ")) #asks the user for their id
+    student = input("Enter your name: ") #asks the user for their name
+    process(id,student) #uses the function explained above
+
+except ValueError: #exception if the user enters wrong formatted text
+        print("Enter a valid id") #displays a warning message if the user enters wrong formatted text
+
+
+print(f"students' names' dictionary: {students} ") #displays the students' names' dictionary
+print(f"students' ids: {ids}") #displays the students' ids' dictionary
+print("="*59) #display text for user interface (UI)
+input("Press ENTER to exit the program...") #waits for user input to exit the program if running in cmd
