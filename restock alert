@@ -1,0 +1,10 @@
+stock = {"Laptop": 5, "Mice": 0, "Keyboard": 12, "Monitors": 0 }                  
+
+def restock_alert(inventory):
+    need_to_restock = []
+    for k,v in inventory.items():
+        if v == 0:
+            need_to_restock.append(k)
+    return need_to_restock
+
+print(f"you need to restock: {restock_alert(stock)}")
